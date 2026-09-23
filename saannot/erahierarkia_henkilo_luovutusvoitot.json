@@ -1,0 +1,156 @@
+{
+ "kuvaus": "Aikasarjaa vasten vahvistetut yläerä–alaerä-suhteet. Voit lisätä tai poistaa suhteita käsin; tiedostossa olevia valvotaan jatkossa ilman uutta kalibrointia.",
+ "paivitetty": "2026-09-22T06:51:29",
+ "suhteet": {
+  "HVT_VOITTO_10": {
+   "nimi": "1. Verovuoden luovutusvoitot, brutto",
+   "lapset": [
+    "HVT_VOITTO_70",
+    "HVT_VOITTO_130"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VOITTO_70": {
+   "nimi": "1.1 Julkisesti noteerattujen arvopapereiden verovuoden luovutusvoitot",
+   "lapset": [
+    "HVT_VOITTO_410",
+    "HVT_VOITTO_420",
+    "HVT_VOITTO_430",
+    "HVT_VOITTO_440",
+    "HVT_VOITTO_450",
+    "HVT_VOITTO_460",
+    "HVT_VOITTO_470",
+    "HVT_VOITTO_480",
+    "HVT_VOITTO_490",
+    "HVT_VOITTO_500",
+    "HVT_VOITTO_510",
+    "HVT_VOITTO_520",
+    "HVT_VOITTO_530",
+    "HVT_VOITTO_540",
+    "HVT_VOITTO_550",
+    "HVT_VOITTO_560",
+    "HVT_VOITTO_570",
+    "HVT_VOITTO_580",
+    "HVT_VOITTO_590",
+    "HVT_VOITTO_600",
+    "HVT_VOITTO_610"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VOITTO_130": {
+   "nimi": "1.2 Osakehuoneistojen, kiinteistöjen ja muun omaisuuden verovuoden luovutusvoitot",
+   "lapset": [
+    "HVT_VOITTO_620",
+    "HVT_VOITTO_630",
+    "HVT_VOITTO_640",
+    "HVT_VOITTO_650",
+    "HVT_VOITTO_660",
+    "HVT_VOITTO_760",
+    "HVT_VOITTO_770",
+    "HVT_VOITTO_780",
+    "HVT_VOITTO_790",
+    "HVT_VOITTO_800",
+    "HVT_VOITTO_810",
+    "HVT_VOITTO_820",
+    "HVT_VOITTO_830",
+    "HVT_VOITTO_840",
+    "HVT_VOITTO_850",
+    "HVT_VOITTO_860",
+    "HVT_VOITTO_870",
+    "HVT_VOITTO_880",
+    "HVT_VOITTO_890",
+    "HVT_VOITTO_900",
+    "HVT_VOITTO_910"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_TAPPIO_20": {
+   "nimi": "5.1 Verovuoden luovutustappiot",
+   "lapset": [
+    "HVT_TAPPIO_30",
+    "HVT_TAPPIO_40"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_TAPPIO_120": {
+   "nimi": "7. Vähennyskelpoista luovutustappiota jäljellä",
+   "lapset": [
+    "HVT_TAPPIO_130",
+    "HVT_TAPPIO_140",
+    "HVT_TAPPIO_150",
+    "HVT_TAPPIO_160",
+    "HVT_TAPPIO_170",
+    "HVT_TAPPIO_180"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_OSAKESAASTO_90": {
+   "nimi": "11. Osakesäästötileiltä nostetut säästövarat verovuoden aikana",
+   "lapset": [
+    "HVT_OSAKESAASTO_100",
+    "HVT_OSAKESAASTO_110"
+   ],
+   "vahvistettu_vuosilta": [
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  }
+ }
+}

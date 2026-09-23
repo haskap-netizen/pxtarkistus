@@ -1,0 +1,420 @@
+{
+ "kuvaus": "Aikasarjaa vasten vahvistetut yläerä–alaerä-suhteet. Voit lisätä tai poistaa suhteita käsin; tiedostossa olevia valvotaan jatkossa ilman uutta kalibrointia.",
+ "paivitetty": "2026-09-22T06:49:27",
+ "suhteet": {
+  "HVT_TULOT_280": {
+   "nimi": "4.2.1 Eläketulot",
+   "lapset": [
+    "HVT_TULOT_290",
+    "HVT_TULOT_300",
+    "HVT_TULOT_310",
+    "HVT_TULOT_320",
+    "HVT_TULOT_330",
+    "HVT_TULOT_340",
+    "HVT_TULOT_360"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2023"
+   ]
+  },
+  "HVT_TULOT_630": {
+   "nimi": "5.1.3 Verotettavat vuokratulot",
+   "lapset": [
+    "HVT_TULOT_640",
+    "HVT_TULOT_650",
+    "HVT_TULOT_660"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_TULOT_870": {
+   "nimi": "5.2 Verovapaat pääomatulot (sis. myös osinkojen ja ylijäämien verovapaat ansiotulo-osuudet)",
+   "lapset": [
+    "HVT_TULOT_871",
+    "HVT_TULOT_872",
+    "HVT_TULOT_873",
+    "HVT_TULOT_874",
+    "HVT_TULOT_875"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_TULOT_1110": {
+   "nimi": "11.3 Yhtymien jaettava tulo-osuus osakkailla",
+   "lapset": [
+    "HVT_TULOT_1120",
+    "HVT_TULOT_1150",
+    "HVT_TULOT_1180"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VAHENNYKSET_40": {
+   "nimi": "3. Ansiotuloista tehtävät luonnolliset vähennykset eli tulonhankkimiskulut yhteensä",
+   "lapset": [
+    "HVT_VAHENNYKSET_50",
+    "HVT_VAHENNYKSET_60",
+    "HVT_VAHENNYKSET_90",
+    "HVT_VAHENNYKSET_100",
+    "HVT_VAHENNYKSET_210",
+    "HVT_VAHENNYKSET_220"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VAHENNYKSET_100": {
+   "nimi": "3.4 Tulonhankkimisvähennyksen sijasta myönnettyjen todellisten tulonhankkimiskulujen määrä (TVL 95 §)",
+   "lapset": [
+    "HVT_VAHENNYKSET_110",
+    "HVT_VAHENNYKSET_170",
+    "HVT_VAHENNYKSET_180",
+    "HVT_VAHENNYKSET_190",
+    "HVT_VAHENNYKSET_200"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VAHENNYKSET_720": {
+   "nimi": "10.6 Pääomatuloista vähennettävät korkomenot yhteensä (TVL 58 § 2 mom.)",
+   "lapset": [
+    "HVT_VAHENNYKSET_730",
+    "HVT_VAHENNYKSET_750",
+    "HVT_VAHENNYKSET_770",
+    "HVT_VAHENNYKSET_780"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VAHENNYKSET_860": {
+   "nimi": "12. Pääomatulolajin alijäämä yhteensä",
+   "lapset": [
+    "HVT_VAHENNYKSET_870",
+    "HVT_VAHENNYKSET_880",
+    "HVT_VAHENNYKSET_890",
+    "HVT_VAHENNYKSET_900"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VAHENNYKSET_920": {
+   "nimi": "14.1 Työtulovähennys",
+   "lapset": [
+    "HVT_VAHENNYKSET_930",
+    "HVT_VAHENNYKSET_940",
+    "HVT_VAHENNYKSET_950",
+    "HVT_VAHENNYKSET_960",
+    "HVT_VAHENNYKSET_970"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VAHENNYKSET_1900": {
+   "nimi": "14.7.1 Kotitalousvähennys, veroista vähennetty määrä",
+   "lapset": [
+    "HVT_VAHENNYKSET_1090",
+    "HVT_VAHENNYKSET_1100",
+    "HVT_VAHENNYKSET_1110",
+    "HVT_VAHENNYKSET_1120",
+    "HVT_VAHENNYKSET_1130"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VAHENNYKSET_1890": {
+   "nimi": "14.8.1 Kotitalousvähennykseen oikeuttavat kunnossapito- tai perusparannustyön kustannukset yhteensä",
+   "lapset": [
+    "HVT_VAHENNYKSET_1160",
+    "HVT_VAHENNYKSET_1190",
+    "HVT_VAHENNYKSET_1220"
+   ],
+   "vahvistettu_vuosilta": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VAHENNYKSET_1800": {
+   "nimi": "14.8.2 Kotitalousvähennykseen oikeuttavat kotitaloustyön kustannukset yhteensä",
+   "lapset": [
+    "HVT_VAHENNYKSET_1170",
+    "HVT_VAHENNYKSET_1200",
+    "HVT_VAHENNYKSET_1230"
+   ],
+   "vahvistettu_vuosilta": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VAHENNYKSET_1830": {
+   "nimi": "14.8.3 Kotitalousvähennykseen oikeuttavat hoiva- tai hoitotyön kustannukset yhteensä",
+   "lapset": [
+    "HVT_VAHENNYKSET_1180",
+    "HVT_VAHENNYKSET_1210",
+    "HVT_VAHENNYKSET_1240"
+   ],
+   "vahvistettu_vuosilta": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VAHENNYKSET_1300": {
+   "nimi": "14.9 Alijäämähyvitystä vähennetty eri veroista yhteensä (TVL 132 §, TVL 133 §)",
+   "lapset": [
+    "HVT_VAHENNYKSET_1310",
+    "HVT_VAHENNYKSET_1320",
+    "HVT_VAHENNYKSET_1330",
+    "HVT_VAHENNYKSET_1340"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VAHENNYKSET_1350": {
+   "nimi": "14.10 Erityistä alijäämähyvitystä vähennetty eri veroista yhteensä",
+   "lapset": [
+    "HVT_VAHENNYKSET_1360",
+    "HVT_VAHENNYKSET_1370",
+    "HVT_VAHENNYKSET_1380",
+    "HVT_VAHENNYKSET_1390"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VAHENNYKSET_1510": {
+   "nimi": "15. Yrittäjävähennys",
+   "lapset": [
+    "HVT_VAHENNYKSET_1520",
+    "HVT_VAHENNYKSET_1530",
+    "HVT_VAHENNYKSET_1540",
+    "HVT_VAHENNYKSET_1550",
+    "HVT_VAHENNYKSET_1560"
+   ],
+   "vahvistettu_vuosilta": [
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VEROT_20": {
+   "nimi": "1.1 Tuloverot yhteensä",
+   "lapset": [
+    "HVT_VEROT_30",
+    "HVT_VEROT_60",
+    "HVT_VEROT_90",
+    "HVT_VEROT_100",
+    "HVT_VEROT_110",
+    "HVT_VEROT_120",
+    "HVT_VEROT_200"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VEROT_30": {
+   "nimi": "1.1.1 Tuloverot valtionverotuksessa",
+   "lapset": [
+    "HVT_VEROT_40",
+    "HVT_VEROT_50"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VEROT_60": {
+   "nimi": "1.1.2 Kunnallisvero (TVL 130 §)",
+   "lapset": [
+    "HVT_VEROT_70",
+    "HVT_VEROT_80"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2021"
+   ]
+  },
+  "HVT_VEROT_250": {
+   "nimi": "1.1.5.1 Sairausvakuutuksen sairaanhoitomaksu ennen lisäyksiä ja vähennyksiä",
+   "lapset": [
+    "HVT_VEROT_260",
+    "HVT_VEROT_280"
+   ],
+   "vahvistettu_vuosilta": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  },
+  "HVT_VEROT_130": {
+   "nimi": "1.2 Seuraamusmaksut",
+   "lapset": [
+    "HVT_VEROT_140",
+    "HVT_VEROT_150"
+   ],
+   "vahvistettu_vuosilta": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ]
+  }
+ }
+}
