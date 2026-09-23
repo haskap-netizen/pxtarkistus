@@ -1,0 +1,207 @@
+# pxtarkistus – asetukset
+# Kaikki arvot voi ohittaa komentoriviltä.
+
+palvelin: "https://vero2.stat.fi/PXWeb/api/v1/fi"
+tietokanta: "Vero"
+
+# Välimuisti: sama kysely haetaan palvelimelta vain kerran voimassaoloajan sisällä.
+valimuisti: ".pxvalimuisti"
+valimuisti_tuntia: 168      # 7 vrk
+# Välimuistissa oleva vastaus hylätään, jos taulu on päivitetty palvelimella sen
+# jälkeen (päivitysaika luetaan kansiolistauksesta). Muuten yhdessä ajossa voisi
+# sekoittua ennen ja jälkeen päivityksen haettua dataa.
+listaus_valimuisti_tuntia: 1       # kansiolistaukset (päivitysajat) haetaan näin usein
+ilman_paivitysaikaa_tuntia: 12     # taulut, joiden listauksessa ei ole päivitysaikaa
+tauko_s: 1.0                # tauko peräkkäisten API-kutsujen välissä
+max_solut: 40000            # tätä suuremmat kyselyt paloitellaan. Isompi arvo vähentää
+                            # kyselyitä, mutta vaihtaa paloiteltujen kyselyiden tunnisteet,
+                            # jolloin välimuistissa olevat haut tehdään uudelleen.
+aikakatkaisu_s: 300         # suurimmat taulut (postinumerot) ovat hitaita
+
+verovuosi: "2024"
+tunnusluvut: ["Sum", "N"]
+max_erat: 80                # montako tilastoerää otetaan mukaan kerralla
+
+toleranssi:
+  absoluuttinen: 1.0        # euroa / kappaletta
+  suhteellinen: 0.0         # osuus vertailuarvosta
+  # PxWeb pyöristää jokaisen eurosolun erikseen, joten n solun summa voi poiketa
+  # julkaistusta kokonaissummasta ~0,5 euroa solua kohden. Tämä vara koskee vain
+  # eurosummia, ei lukumääriä (N).
+  pyoristys_per_solu: 0.5
+
+ristiin:
+  # Näkymävertailussa verrataan summan ja lukumäärän lisäksi keskiarvoa ja
+  # mediaania: ne eivät ole additiivisia, mutta koko maan tasolla niiden pitää
+  # olla samat joka näkymässä.
+  tunnusluvut: ["Sum", "N", "Mean", "P50"]
+
+osasummat:
+  # Tätä suuremmat ositukset ohitetaan (postinumeroalueita on noin 1 100).
+  max_luokat: 2000
+
+erahierarkia:
+  # Yläerä–alaerä-suhteet johdetaan erien nimien numeroinnista ("4.1" on erän
+  # "4." alaerä), mutta suhde otetaan valvontaan vasta kun se on pitänyt
+  # jokaisena vuonna, jolta molemmat on julkaistu. Vahvistetut suhteet
+  # tallennetaan sääntötiedostoon, jota voi myös korjata käsin.
+  saannot: "saannot/erahierarkia_{joukko}.json"
+  vahimmaisvuodet: 3
+
+aikasarja:
+  hyppy_raja: 0.30          # yli 30 %:n vuosimuutos nostetaan esiin
+  vahimmaisarvo: 1000       # tätä pienempiä arvoja ei arvioida muutosprosentilla
+  tilannevedos: "tilannevedokset/{joukko}.json"   # {joukko} = joukon nimi
+
+# ---------------------------------------------------------------------------
+# Taulujoukot: mitkä taulut verrataan keskenään.
+#
+# Vertailu on mielekäs vain, jos taulujen perusjoukko on sama:
+#   - kansiot 01–05 ja 13–20: kaikki verovelvolliset
+#   - kansiot 06–12: vain yleisesti verovelvolliset
+#   - kansiot 21–24: omat osajoukkonsa (YEL- ja MYEL-vakuutetut,
+#     listaamattomista yhtiöistä osinkoja saaneet, luovutusvoitot)
+#
+# `kansiot` ottaa mukaan kansion kaikki taulut alikansioineen, myös
+# verovuosikohtaiset. Taulun tai kansion voi antaa muodossa
+# {polku: ..., kiinnita: {Muuttuja: arvo}}, jolloin muuttuja rajataan arvoon
+# Yhteensä-arvon sijaan. Arvo voi olla koodi tai arvoteksti.
+#
+# Aja kaikki kerralla:  python aja.py tarkista --joukko kaikki
+# ---------------------------------------------------------------------------
+joukot:
+  henkilo_kaikki:
+    kuvaus: "Kaikki verovelvolliset, kansiot 01–05 ja 13–20"
+    # Osa näiden kansioiden tauluista kattaa vain yleisesti verovelvolliset
+    # (esim. 19.02, 19.06 … 19.42 alueittain). Ne tunnistetaan otsikosta ja
+    # siirretään joukkoon henkilo_yleisesti.
+    otsikko_ei: "yleisesti verovelvollisten"
+    kansiot:
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/tulot"          # 01
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/vahennykset"    # 02
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/verot_maksut"   # 03
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/ennakot"        # 04
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/verovelv"       # 05
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/veronaltul"     # 13
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/tulokymmenys"   # 14
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/tulotaso"       # 15
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/ansio"          # 16
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/paaoman"        # 17
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/valtvertul"     # 18
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/ansiotulon"     # 19
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/kokotulo"       # 20
+
+  henkilo_yleisesti:
+    kuvaus: "Yleisesti verovelvolliset, kansiot 06–12 + silta kansioon 05"
+    # Aluekansion verovuosikohtaisissa alikansioissa on myös osajoukkojen
+    # tauluja (6.16 YEL-, 6.17 MYEL-vakuutetut, 6.18 listaamattomista
+    # yhtiöistä osinkoja saaneet). Ne tarkistetaan omina joukkoinaan.
+    otsikko_ei: "YEL-vakuutettujen|listaamattomista yhtiöistä osinkoja saaneiden"
+    kansiot:
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/alue"           # 06
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/kuntaryh"       # 07
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/postinum"       # 08
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/seurakunta"     # 09
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/perhetyyp"      # 10
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/koulutus"       # 11
+      - "Henkiloasiakkaiden_tuloverot/lopulliset/syntvuosikym"   # 12
+      # Silta: kansion 05 verovelvollisuustaulut rajattuna yleisesti
+      # verovelvollisiin. Niiden pitää antaa sama koko maan luku kuin
+      # kansioiden 06–12, joten tämä sitoo kaksi perusjoukkoa toisiinsa.
+      - polku: "Henkiloasiakkaiden_tuloverot/lopulliset/verovelv"
+        kiinnita:
+          Verovelvollisuus: "Yleisesti verovelvolliset"
+      # Kansioiden 01–05 ja 13–20 taulut, jotka otsikkonsa mukaan kattavat
+      # vain yleisesti verovelvolliset (esim. kansio 19 alueittain).
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/tulot", otsikko: "yleisesti verovelvollisten"}
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/vahennykset", otsikko: "yleisesti verovelvollisten"}
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/verot_maksut", otsikko: "yleisesti verovelvollisten"}
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/ennakot", otsikko: "yleisesti verovelvollisten"}
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/verovelv", otsikko: "yleisesti verovelvollisten"}
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/veronaltul", otsikko: "yleisesti verovelvollisten"}
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/tulokymmenys", otsikko: "yleisesti verovelvollisten"}
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/tulotaso", otsikko: "yleisesti verovelvollisten"}
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/ansio", otsikko: "yleisesti verovelvollisten"}
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/paaoman", otsikko: "yleisesti verovelvollisten"}
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/valtvertul", otsikko: "yleisesti verovelvollisten"}
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/ansiotulon", otsikko: "yleisesti verovelvollisten"}
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/kokotulo", otsikko: "yleisesti verovelvollisten"}
+
+  henkilo_yel:
+    kuvaus: "YEL-vakuutetut, kansio 21"
+    kansiot: ["Henkiloasiakkaiden_tuloverot/lopulliset/yel"]
+
+  # Osajoukkojen aluetaulut (kansio 06, taulut 6.16–6.18) kattavat vain
+  # yleisesti verovelvolliset osajoukon jäsenet, joten ne ovat omia joukkojaan.
+  henkilo_yel_alueittain:
+    kuvaus: "Yleisesti verovelvolliset YEL-vakuutetut alueittain (6.16)"
+    kansiot:
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/alue", otsikko: "(?<!M)YEL-vakuutettujen"}
+
+  henkilo_myel_alueittain:
+    kuvaus: "Yleisesti verovelvolliset MYEL-vakuutetut alueittain (6.17)"
+    kansiot:
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/alue", otsikko: "MYEL-vakuutettujen"}
+
+  henkilo_listamosin_alueittain:
+    kuvaus: "Yleisesti verovelvolliset listaamattomista yhtiöistä osinkoja saaneet alueittain (6.18)"
+    kansiot:
+      - {polku: "Henkiloasiakkaiden_tuloverot/lopulliset/alue", otsikko: "listaamattomista yhtiöistä osinkoja saaneiden"}
+
+  henkilo_myel:
+    kuvaus: "MYEL-vakuutetut, kansio 22"
+    kansiot: ["Henkiloasiakkaiden_tuloverot/lopulliset/myel"]
+
+  henkilo_listamosin:
+    kuvaus: "Listaamattomista yhtiöistä osinkoja saaneet, kansio 23"
+    kansiot: ["Henkiloasiakkaiden_tuloverot/lopulliset/listamosin"]
+
+  henkilo_luovutusvoitot:
+    kuvaus: "Luovutusvoitot ja osakesäästötilit, kansio 24"
+    kansiot: ["Henkiloasiakkaiden_tuloverot/lopulliset/luovutusvoitot"]
+
+# ---------------------------------------------------------------------------
+# Luokitusten rakenne.
+# "yhteensa" = koodi, joka on luokituksen Yhteensä-arvo.
+# "tasot"    = toisensa poissulkevat joukot. Tämä on pakollista hierarkkisille
+#              luokituksille: esim. Kuntaryhmityksessä Manner-Suomi (1) ja
+#              TK1–TK3 kuvaavat samaa joukkoa eri tarkkuudella, joten kaikkien
+#              arvojen yhteenlasku kaksinkertaistaisi Manner-Suomen.
+# Arvo voi olla säännöllinen lauseke tai lista koodeja.
+# Jos muuttujaa ei ole listattu, ohjelma päättelee Yhteensä-arvon
+# arvoteksteistä ja olettaa kaikki muut arvot yhdeksi osituksesi.
+# ---------------------------------------------------------------------------
+luokitukset:
+  Alue:
+    yhteensa: "000"
+    tasot:
+      maakunnat: "^[0-9]{2}$"
+      kunnat: "^[0-9]{3}$"
+  Kuntaryhmitys:
+    yhteensa: "SSS"
+    tasot:
+      paajako: ["1", "2", "ZZZ"]
+      tilastollinen_kuntaryhmitys: ["TK1", "TK2", "TK3", "2", "ZZZ"]
+  Tuloluokka:
+    yhteensa: "SS"        # tulotasotilastossa "SSS" – tunnistetaan silloin itse
+  Kuntapostinumero:
+    # koodit muotoa 005_62710 (kunta_postinumero), 005_ZZZPL, 005_MUUKN
+    tasot:
+      kunnat: "^[0-9]{3}$"
+      postinumeroalueet: "^[0-9]{3}_"
+  Seurakunta:
+    # Kirkollisveroa perivät vain evankelis-luterinen ja ortodoksinen kirkko,
+    # joten Yhteensä = ei-kirkollisverovelvolliset + ev.lut. + ortodoksiset.
+    # Seurakuntataso on merkitty varmistamattomaksi: jos seurakuntayhtymät ja
+    # niiden jäsenseurakunnat ovat molemmat listalla, summa ei täsmää, ja
+    # poikkeama raportoidaan silloin lievänä huomiona eikä virheenä.
+    tasot:
+      paajako:
+        teksti: "^(Ei-kirkollisverovelvolliset|Evankelis-luterilaiset seurakunnat|Ortodoksiset seurakunnat) yhteensä$"
+      seurakunnat:
+        teksti: "^(Ei-kirkollisverovelvolliset yhteensä|(?!.*yhteensä$).*)$"
+        varmistamaton: true
+  Perhetyyppi:
+    yhteensa: "SS"
+  Tulonsaajaryhmä:
+    yhteensa: "Y"
