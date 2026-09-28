@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pxtarkistus"
+dynamic = ["version"]
+description = "Verohallinnon julkisten verotilastojen ristiintarkistus PxWeb-rajapinnasta"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = ["verotilastot", "pxweb", "avoin data", "tiedon laatu"]
+dependencies = [
+    "requests>=2.31",
+    "pandas>=2.0",
+    "openpyxl>=3.1",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+# calamine lukee suuret työkirjat moninkertaisesti openpyxl:ää nopeammin
+# (tiivista- ja vertaa-komennot).
+nopea = ["python-calamine>=0.2"]
+
+[project.scripts]
+pxtarkistus = "pxtarkistus.cli:main"
+
+[project.urls]
+Koti = "https://github.com/haskap-netizen/pxtarkistus"
+
+[tool.setuptools]
+packages = ["pxtarkistus"]
+
+[tool.setuptools.dynamic]
+version = { attr = "pxtarkistus.__version__" }
