@@ -1,0 +1,48 @@
+# Kuittaukset – jo selvitetyt havainnot pois raportin päältä.
+#
+# Kopioi tämä tiedosto nimelle kuittaukset.yaml ja kirjoita siihen vain ne
+# havainnot, jotka olet itse tutkinut ja todennut tunnetuiksi. Kuittaus ei
+# poista havaintoa: se siirtyy raportin Kuitatut-välilehdelle perusteluineen
+# ja jää pois lukumääristä ja paluuarvosta. Näin seuraavassa ajossa jäljelle
+# jää vain uusi tieto.
+#
+# Käyttö:
+#   python aja.py tarkista --joukko kaikki                      # lukee kuittaukset.yaml
+#   python aja.py tarkista --joukko kaikki --kuittaukset omat.yaml
+#
+# Jokainen kenttä on säännöllinen lauseke, jonka on täsmättävä koko kenttään.
+# Kenttä voi olla myös lista, jolloin riittää, että yksi vaihtoehto täsmää.
+# Mainitsemattomat kentät eivät rajaa mitään – mitä vähemmän ehtoja, sitä
+# enemmän sääntö vaimentaa, joten rajaa mieluummin liikaa kuin liian vähän.
+#
+# Käytettävissä olevat kentät:
+#   joukko, tarkistus, vakavuus, era, era_nimi, verovuosi, tunnusluku,
+#   kohde, vertailukohta, kuvaus
+#
+# `voimassa_asti` päättää kuittauksen automaattisesti. Sen jälkeen havainnot
+# palaavat raporttiin – niin vanha perustelu ei jää vaimentamaan ikuisesti.
+# Ajo huomauttaa myös säännöistä, jotka eivät osu enää mihinkään: silloin
+# havainto on korjattu ja säännön voi poistaa.
+
+kuittaukset:
+  # 1) Yksi tarkistus kokonaan, yhdestä joukosta
+  # - tunnus: peitot-listamosinko
+  #   syy: >
+  #     Listaamattomien yhtiöiden osinkotaulussa valtaosa alueluokista on
+  #     peitetty (..), joten osasummat jäävät väistämättä vajaiksi.
+  #   tarkistus: osasummat
+  #   joukko: henkilo_listamosin.*
+  #   voimassa_asti: 2027-06-30
+
+  # 2) Yksi erä ja vuosi, kaikissa näkymissä
+  # - tunnus: myel-tyotulo-2018
+  #   syy: Tarkistettu Verohallinnolta 9/2026, ero johtuu MYEL-työtulon rajauksesta.
+  #   tarkistus: ristiin
+  #   era: HVT_TULOT_140
+  #   verovuosi: "2018|2019|2020"
+
+  # 3) Yksi taulu, joka tiedetään eri perusjoukoksi
+  # - tunnus: taulu-16-3-vuosi-2020
+  #   syy: Taulu 16.3 kattaa vuonna 2020 vain osan verovelvollisista.
+  #   kohde: ".*16_3.*"
+  #   verovuosi: "2020"
