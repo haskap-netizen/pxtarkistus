@@ -8,6 +8,21 @@ Versiot 1.3.0 ja sitä uudemmat on kirjattu julkaisuhetkellä. Sitä vanhemmat
 merkinnät on koottu jälkikäteen koodin perusteella, eikä niille ole tarkkaa
 päivämäärää.
 
+## 1.5.1 (2026-09-29)
+
+Dokumentaatio ja paketointi; tarkistuslogiikka ennallaan.
+
+- README kertoo heti alussa, että tarkistus kattaa tilaston kaikki 24 kansiota.
+  Aiemmin tarkistus A alkoi esimerkillä näkymistä 06–12, mistä saattoi saada
+  sen käsityksen, että vain ne tarkistetaan.
+- README:hen taulukko kaikista komentorivivalitsimista.
+- Välimuistin kuvauksesta poistettu vanhentunut luettelo tauluista, joilla ei
+  ole päivitysaikaa – joukko vaihtuu sitä mukaa kun tauluja julkaistaan.
+- `pyproject.toml`: lisenssi PEP 639 -muodossa (`license = "MIT"`), koska
+  vanha taulukkomuoto poistuu setuptoolsista 2/2027.
+- Kuittausten kenttävertailu käsittelee tyhjän arvon oikein (`fillna` ennen
+  merkkijonomuunnosta).
+
 ## 1.5.0 (2026-09-28)
 
 Toistuvan ajon työkalut: sama julkaisu tuottaa samat havainnot joka kerta, joten

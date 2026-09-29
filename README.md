@@ -240,6 +240,38 @@ näin komennon voi ketjuttaa ajastukseen tai putkeen.
 Ensimmäinen ajo kannattaa tehdä pienellä `--max-erat`-arvolla: yksi kysely
 per taulu ja tarkistus, mutta kyselyiden koko kasvaa erien määrän mukana.
 
+### Valitsimet
+
+Yhteiset kaikille komennoille:
+
+| Valitsin | Merkitys |
+|---|---|
+| `--asetukset` | asetustiedosto (oletus `asetukset.yaml` työhakemistosta) |
+| `--tuore` | ohita levyvälimuisti ja hae luvut uudelleen palvelimelta |
+| `--vaiheittain` | näytä lokitus (mitä haetaan ja milloin kysely paloitellaan) |
+| `--versio` | tulosta ohjelmaversio |
+
+Komennolle `tarkista`:
+
+| Valitsin | Merkitys |
+|---|---|
+| `--joukko` | joukon nimi, pilkkulista tai `kaikki` (pakollinen) |
+| `--verovuosi` | tarkistettava vuosi (oletus asetuksista) |
+| `--vuodet kaikki` | näkymävertailu koko aikasarjalta |
+| `--osasummavuodet` | osasummien vuodet: `kaikki` tai pilkkulista |
+| `--tarkistukset` | mitkä tarkistukset ajetaan: `ristiin,osasummat,aikasarja,erahierarkia,alueet` |
+| `--tunnusluvut` | esim. `Sum,N` |
+| `--erat-tiedosto` | tekstitiedosto, yksi erätunnus per rivi |
+| `--max-erat` | montako tilastoerää otetaan mukaan |
+| `--raportti` | raporttihakemisto (oletus `raportit/`) |
+| `--kuittaukset` | kuittaustiedosto (oletus `kuittaukset.yaml`, jos on) |
+| `--tilannevedos` | revisiovertailun vedostiedosto |
+| `--erahierarkia-saannot` | vahvistettujen yläerä–alaerä-suhteiden tiedosto |
+
+Komennolle `vertaa` on lisäksi `--tuloste` (vertailutiedoston nimi), komennolle
+`kartoita` `--juuri` ja `--tuloste`, ja komennoille `muuttujat` ja `erat`
+`--taulu` sekä `erat`-komennolle `--haku`.
+
 ---
 
 ## Toistuva ajo: kuittaukset ja vertailu
@@ -391,9 +423,10 @@ Taulun välimuistiin tallennettu vastaus hylätään, jos kansiolistauksen mukaa
 taulu on päivitetty palvelimella tallentamisen jälkeen. Ilman tätä sama ajo
 voisi verrata ennen ja jälkeen päivityksen haettuja lukuja, jolloin ero
 näyttäisi näkymien väliseltä virheeltä. Kansiolistaukset haetaan uudelleen
-tunnin välein (`listaus_valimuisti_tuntia`). Osassa tauluja listaus ei kerro
-päivitysaikaa (syyskuussa 2026 esimerkiksi kansioiden 01, 05, 13–15 ja 20
-taulut); niiden vastaukset haetaan uudelleen 12 tunnin jälkeen
+tunnin välein (`listaus_valimuisti_tuntia`). Kaikille tauluille listaus ei
+kerro päivitysaikaa, ja joukko vaihtuu ajan myötä sitä mukaa kun tauluja
+julkaistaan uudelleen (syyskuussa 2026 esimerkiksi kansion 20 taulut);
+niiden vastaukset haetaan uudelleen 12 tunnin jälkeen
 (`ilman_paivitysaikaa_tuntia`). Valitsin `--tuore` ohittaa välimuistin
 kokonaan; saman ajon sisällä toistuva sama kysely luetaan silti kerran
 haetusta vastauksesta, joten kyselyiden määrä ei kasva.
