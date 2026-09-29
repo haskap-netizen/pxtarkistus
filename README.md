@@ -8,17 +8,27 @@ Työkalu ei korjaa mitään eikä ota kantaa siihen, onko poikkeama virhe. Se
 nostaa esiin kohdat, joissa saman asian kaksi julkaistua lukua eivät täsmää,
 ja näyttää molemmat luvut sekä eron euroina ja prosentteina.
 
+Tarkistus kattaa henkilöasiakkaiden tuloverotilaston **kaikki 24 kansiota**.
+Taulut on ryhmitelty joukoiksi perusjoukon mukaan – kaikki verovelvolliset,
+yleisesti verovelvolliset, YEL- ja MYEL-vakuutetut ja niin edelleen – ja
+vertailu tehdään aina joukon sisällä, koska eri perusjoukkojen lukuja ei voi
+verrata keskenään. Joukot on lueteltu kohdassa [Asetukset](#asetukset-asetuksetyaml).
+
 ---
 
 ## Mitä tarkistetaan
 
 ### A. Sama tilastoerä eri näkymissä (`ristiin`)
 
-Henkilöasiakkaiden tuloverotilastossa näkymät 06–12 kuvaavat samaa
-perusjoukkoa (yleisesti verovelvolliset) eri luokituksin: alueittain,
-kuntaryhmittäin, perhetyypeittäin, koulutustason mukaan ja niin edelleen.
-Kun jokaisen luokituksen Yhteensä-arvo valitaan, koko maan tason luvun
-pitäisi olla sama taulusta riippumatta.
+Sama perusjoukko on julkaistu monena näkymänä, jotka eroavat vain
+luokituksesta. Kun jokaisen luokituksen Yhteensä-arvo valitaan, koko maan
+tason luvun pitäisi olla sama taulusta riippumatta. Esimerkiksi näkymät
+06–12 kuvaavat yleisesti verovelvollisia alueittain, kuntaryhmittäin,
+perhetyypeittäin, koulutustason mukaan ja niin edelleen; kaikkien
+verovelvollisten näkymät ovat kansioissa 01–05 ja 13–20, ja
+YEL-vakuutetuilla, MYEL-vakuutetuilla, listaamattomista yhtiöistä osinkoja
+saaneilla ja luovutusvoitoilla on omansa kansioissa 21–24. Vertailu ajetaan
+jokaisen joukon sisällä erikseen.
 
 Tarkistus hakee jokaisesta taulusta saman erätunnuksen (esim.
 `HVT_TULOT_80`, palkkatulot) koko maan arvon ja vertaa tauluja toisiinsa.
