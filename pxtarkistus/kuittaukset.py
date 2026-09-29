@@ -78,7 +78,7 @@ class Kuittaus:
         for kentta, kaavat in self.ehdot.items():
             if kentta not in havainnot.columns:
                 return pd.Series(False, index=havainnot.index)
-            sarake = havainnot[kentta].astype(str).fillna("")
+            sarake = havainnot[kentta].fillna("").astype(str)
             osuma = pd.Series(False, index=havainnot.index)
             for kaava in kaavat:
                 osuma |= sarake.map(lambda t, k=kaava: bool(k.fullmatch(t)))

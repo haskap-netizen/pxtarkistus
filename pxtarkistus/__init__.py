@@ -6,7 +6,7 @@ sisäiset osasummat, aikasarjan eheys ja revisiot, yläerä vs. alaerien summa
 sekä kunnan luku vs. sen postinumeroalueiden summa.
 """
 
-__version__ = "1.5.0"
+__version__ = "1.5.1"
 
 from .pxclient import Metatiedot, Muuttuja, PxWebAsiakas, PxWebVirhe, Taulu  # noqa: F401
 from .inventaario import Roolit, tunnista_roolit  # noqa: F401
